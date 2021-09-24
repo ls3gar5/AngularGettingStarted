@@ -1,0 +1,61 @@
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>            
+            <div class="col-md-4">
+                <input type="text"
+                [(ngModel)]="listFilter">
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Filter by: {{listFilter}}</h4>
+            </div>              
+        </div>
+        <!-- *<div class="row">
+
+            <h5 class="card-title">Special title treatment</h5>
+
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>   -->
+
+        <div class="table-responsive">
+            <table class="table table-striped" *ngIf="products && products.length">
+                <thead>
+                  <tr>
+                      <th>
+                          <button (click)="showImage = !showImage" class="btn btn-primary">
+                              {{showImage ? 'Hide Image': 'Show Image'}}
+                          </button>
+                      </th>
+                    <th>Product</th>
+                    <th>Code</th>
+                    <th>Available</th>
+                    <th>Price</th>
+                    <th>5 Start rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of filteredProducts">
+                        <td align="center" >
+                            <img *ngIf="showImage" src="{{item.imageUrl}}" 
+                            title="{{item.productName}}"
+                            style.width.px = {{imageWidth}}
+                            style.margin.px = {{imageMargin}}
+                            />
+                        </td>
+                        <td>{{item.productName | uppercase}}</td>
+                        <td>{{item.productCode | lowercase | convertToSpaces:'-'}}</td>
+                        <td>{{item.releaseDate}}</td>
+                        <td>{{item.price | currency:'$':'symbol': '1.2-2' | lowercase}}</td>
+                        <td>{{item.starRating}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>
