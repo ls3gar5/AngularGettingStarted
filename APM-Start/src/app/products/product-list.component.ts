@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit {
     filteredProducts: IProduct[] = [];
     
     private _listFilter: string = "";
+    ratingStar: string = "";
 
     public get listFilter() : string {
       return this._listFilter;
@@ -89,5 +90,9 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit() {
       this.filteredProducts = this.products;
+     }
+
+     onNotify(ratingStar: string): void{
+      this.ratingStar = ratingStar;
      }
 }
