@@ -1,5 +1,16 @@
 <div class="card">
     <div class="card-header">
-        <!-- {{pageTitle + ": " + product?.productName}}   -->
+        {{pageTitle + " : " + product?.productName}}  
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Title</h5>
+        <p class="card-text">{{product?.productName}}</p>
+        <p class="card-text">{{product?.productCode}}</p>
+        <p class="card-text">{{product?.price}}</p>
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-outline-dark" style="width:80px" (click)='onBack()'>
+            <i class="fa fa-chevron-left"></i> Back
+        </button>
     </div>
 </div>
