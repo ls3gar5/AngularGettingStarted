@@ -4,7 +4,9 @@ import { HttpClient, HttpErrorResponse  } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, filter, map, tap } from "rxjs/operators";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
     export class ProductService{
 
         productUrl:string = './api/products/products.json';
